@@ -4,26 +4,24 @@
 <head>
     <title>jQuery and AJAX</title>
     <link rel="stylesheet" href="../style.css" />
-    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="../jquery-3.5.1.js"></script>
     <script type="text/javascript">
         $("document").ready(function() {
-            $("#getcontent").click(getContent);
-            $("#loadhtml").click(loadHTML);
-        });
-        
+          $("body").css("border" , "10px solid purple");
+          $("#getcontent").click(getContent);
+          $("#loadhtml").click(loadHTML);
+        })
         function getContent() {
-            $.ajax("sampletextcontent.txt", 
-                   { success: setContent, 
-                     type: "GET", 
-                     dataType: "text" });
+          $.ajax("sampletextcontent.txt",
+                  {success  : setContent,
+                  type      : "GET",
+                  dataType  : "text"});
         }
-        
         function setContent(data, status, jqxhr) {
-            $("#example").text(data);
+          $("#example").text(data);
         }
-        
         function loadHTML() {
-            $("#example").load("samplehtml.html");
+          $("#example").load("samplehtml.html");
         }
     </script>
 </head>
