@@ -4,9 +4,18 @@
 <head>
     <title>Using jQuery Animations</title>
     <link rel="stylesheet" href="../style.css" />
-    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="../jquery-3.5.1.js"></script>
     <script type="text/javascript">
-
+      $("document").ready(function() {
+        //to show the jQuery is working properly
+        $("#testDiv").text("jQuery is working properly.");
+        $("#go").click(function() {
+          $("#testDiv").animate({width: 400} , 300)
+            .animate({height: 300} , 400)
+            .animate({left: 200} , 500)
+            .animate({top: "+=100" , borderWidth: 10} , "slow");
+        })
+      });
     </script>
     <style>
         #testDiv {
