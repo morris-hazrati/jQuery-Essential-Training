@@ -10,13 +10,21 @@
           // show that jquery is properly working
           $("#example").append("jquery is properly working");
           // create some new content
-          
-
+          var newP = $("<p>");
+          newP.append("<em>Hello there!</em>")
+          $("#example").html(newP);
 
           // change the existing content
-
+          $("#creation").prepend("Watch This! ").css("border" , "3px solid red");
+          $("#example").html("<h2>This is a new H2.</h2>");
+          $("#example").text("<h2>This is a new H2 </h2>");
         });
     </script>
+    <style media="screen">
+      h1 {
+        line-height: 1;
+      }
+    </style>
 </head>
 
 <body>
