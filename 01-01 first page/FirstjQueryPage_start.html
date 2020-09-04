@@ -6,8 +6,29 @@
     <link rel="stylesheet" href="../style.css" />
 
     <!-- insert the script to reference jQuery here -->
-
+    <script src="../jquery-3.5.1.js"></script>
     <!-- insert the script to display the Hello World message here -->
+    <script>
+    // This part is to start jQuery
+        $("document").ready(function() {
+        $("#content").append("<p> jQuery is working </p>");
+      });
+// in this part, simple javascript will be used to do the same
+      window.addEventListener("DOMContentLoaded" , function(evt) {
+        var elem = document.getElementById("content");
+        var para = document.createElement("p");
+        var text = document.createTextNode("jQuery is working");
+        para.appendChild(text);
+        elem.appendChild(para);
+      });
+
+    </script>
+    <style media="screen">
+      #content {
+        border: 3px solid blue;
+        padding: 10px;
+      }
+    </style>
 </head>
 
 <body>
