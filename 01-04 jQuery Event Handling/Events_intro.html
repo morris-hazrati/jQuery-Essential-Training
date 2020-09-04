@@ -6,7 +6,22 @@
     <link rel="stylesheet" href="../style.css" />
     <script type="text/javascript" src="../jquery-3.5.1.js"></script>
     <script type="text/javascript">
-
+      $("document").ready(function() {
+        $("#example").text("jQuery is working properly!");
+        $("#example").on("mousemove" , onMouseOver);
+        $("#example").on("click" , onMouseClick);
+        $("#example").on("mouseleave" , onMouseLeave);
+      });
+      function onMouseOver(evt) {
+        $("#example").text(evt.type + ": " + evt.pageX + ", " + evt.pageY + "\n" + "Button: " + evt.which + "Key: " + evt.metaKey);
+      }
+      function onMouseClick(evt) {
+        $("#example").text(evt.type + ": " + evt.pageX + ", " + evt.pageY);
+        $("#example").off("mousemove" , onMouseOver);
+      }
+      function onMouseLeave(evt) {
+        $("#example").text("Mouse leaves the Box!");
+      }
     </script>
 </head>
 
