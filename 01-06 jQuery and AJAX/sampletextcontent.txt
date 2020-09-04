@@ -1,0 +1,2 @@
+This text is loaded by ajax capability of jQuery into this document.
+I am Morteza!
