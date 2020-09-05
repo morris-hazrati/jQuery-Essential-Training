@@ -8,14 +8,16 @@
     <script type="text/javascript">
         $("document").ready(function() {
           $("body").css("border" , "3px solid purple");
+          // $("p[class]").css("border" , "3px solid red");
+          // $("p[id=para1]").css("border" , "3px solid red");
+          // $("p[id^=para]").css("border" , "3px solid red");
+          $("p[id ^= para][lang *= en-]").css("border" , "3px solid red");
         });
     </script>
 </head>
-
 <body>
     <h1>Using Attribute Filters</h1>
     <div id="content">
-
         <p>Attribute filters are used to select elements in the Web page that have attribute values matching a given set of
             criteria.</p>
         <p>Some examples include:</p>
