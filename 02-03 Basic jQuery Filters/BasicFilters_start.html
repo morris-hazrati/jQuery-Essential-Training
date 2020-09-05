@@ -8,6 +8,12 @@
     <script type="text/javascript">
         $("document").ready(function() {
           $("body").css("border" , "5px solid purple");
+          // $("#example p:first").css("border" , "3px solid red");
+          // $("#example p:last").css("border" , "3px solid red");
+          // $("#example p:even").css("border" , "3px solid red");
+          // $("#example .a:first").css("border" , "3px solid red");
+          // $("#example .b:even").css("border" , "3px solid red");
+          $("#example p:not(p:eq(2))").css("border" , "3px solid red");
         });
     </script>
 </head>
