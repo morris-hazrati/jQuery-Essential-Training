@@ -7,7 +7,34 @@
     <script type="text/javascript">
         $("document").ready(function () {
           $("body").css("border" , "3px solid purple");
-
+          // alert($("#example").html);
+          // #start: create content button
+          document.getElementById("create").addEventListener("click" , function (evt) {
+            // alert("1");
+            createContent();
+          });
+          function createContent() {
+            $("#example").html("<p> Hi, this is Mori!</p>");
+          }
+          // #end: create content button
+          // #start: change content button
+          document.getElementById("change").addEventListener("click" , function(evt) {
+            // alert("1");
+            changeContent();
+          });
+          function changeContent() {
+            var newItem = $("<p>This is a new content created by Mori!</p>");
+            $("#example p:first").html(newItem);
+          };
+          // # End: change content button
+          // # start: Change all button
+          document.getElementById("changeAll").addEventListener("click" , function(evt) {
+            // alert("1");
+            changeAllTheContent();
+          });
+          function changeAllTheContent() {
+            $("#example p").text("All the content changed by Mori!");
+          };
         });
     </script>
 </head>
