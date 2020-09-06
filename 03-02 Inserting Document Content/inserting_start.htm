@@ -8,7 +8,15 @@
         $("document").ready(function() {
           // check if jQuery is working properly
           $("body").css("border" , "3px solid purple");
-          
+          // $("#example p").append(". This is added by Mori!");
+          // $("#example p").prepend("Hello, I am Mori, ");
+          // $("#example p:last").appendTo("#example p:first");
+          // $("#example p:last").prependTo("#example p:first");
+
+          // $("#example p").after("--");
+          // $("#example p").before("**");
+          $("<p>Para created after</p>").insertAfter("#example p:first");
+          $("<p>Para created before</p>").insertBefore("#example p:last");
         });
     </script>
 </head>
