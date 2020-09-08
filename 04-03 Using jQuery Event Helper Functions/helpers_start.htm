@@ -8,11 +8,33 @@
     <script type="text/javascript">
         $(function() {
           $("body").css("border" , "3px solid purple");
+          $("#evtTarget").hover(highlight, highlight);
+          $("#evtTarget").click(fnClick);
+          $("#evtTarget").dblclick(fnClick2);
+          $(window).resize(fnResize);
+          $("#evtTarget").one("click" , function() {
+            $(this).css({
+              borderWidth : "4px",
+              cursor      : "pointer"
+            });
+          });
         });
+        function highlight () {
+          $("#evtTarget").toggleClass("highlighted");
+        };
+        function fnClick () {
+          $("#evtTarget").html("Click by Mori!");
+        };
+        function fnClick2 () {
+          $("#evtTarget").html("Double click by Mori!");
+        };
+        function fnResize () {
+          $("#evtTarget").html("Broswer window resized by Mori!");
+        };
     </script>
     <style type='text/css'>
         .highlighted {
-            background-color: Red;
+            background-color: green;
         }
     </style>
 </head>
