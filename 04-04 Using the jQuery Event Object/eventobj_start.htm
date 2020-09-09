@@ -8,6 +8,53 @@
     <script type="text/javascript">
         $(function() {
           $("body").css("border" , "3px solid purple");
+          $("#Div1").on("click dblclick" , {name : "Div 1"} , function (evt) {
+            updateEventDetails(evt);
+            evt.stopPropagation();
+          });
+          $("#Div2").on("click dblclick" , {name : "Div 2"} , function (evt) {
+            updateEventDetails(evt);
+            evt.stopPropagation();
+          });
+          $("#Div3").on("click dblclick" , {name : "Div 3"} , function (evt) {
+            updateEventDetails(evt);
+            evt.stopPropagation();
+          });
+          $("div.smallbox").on("mouseenter" , function (evt) {
+            updateEventDetails(evt);
+            evt.stopPropagation();
+          });
+          $("div.smallbox").on("mouseleave", function (evt) {
+            updateEventDetails(evt);
+            evt.stopPropagation();
+          });
+          $("div.smallbox").on("mousemove" , function (evt) {
+            updateEventDetails(evt);
+            evt.stopPropagation();
+          });
+          $("#input1").keypress(updateEventDetails);
+
+          function updateEventDetails (evt) {
+            $(".detailLine span[id]").text("");
+
+            $("#evtType").text(evt.type);
+            $("#evtWhich").text(evt.which);
+            $("#evtTarget").text(evt.target.id);
+
+            if (evt.relatedTarget) {
+              $("#evtRelated").text(evt.relatedTarget.tagName + "#" + evt.relatedTarget.id);
+            };
+
+            $("#evtPageX").text(evt.pageX);
+            $("#evtPageY").text(evt.pageY);
+            $("#evtClientX").text(evt.clientX);
+            $("#evtClientY").text(evt.clientY);
+            $("#evtMetaKey").text(evt.metaKey);
+
+            if (evt.data) {
+                $("#evtData").text(evt.data.name);
+            };
+          };
         });
     </script>
 </head>
@@ -15,7 +62,6 @@
 <body>
     <h1>Using the jQuery Event Object</h1>
     <div id="content">
-
         <p>The jQuery Event object contains detailed information about each event that occurs in the page.</p>
         <p>Click on each of the DIV elements below to see event-related information for each.</p>
         <div id="Div1" class="smallbox inline">Mouse over and click here (Div1)</div>
