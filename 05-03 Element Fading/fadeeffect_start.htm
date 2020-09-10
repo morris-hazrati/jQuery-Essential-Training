@@ -9,18 +9,32 @@
         $(function() {
           $("body").css("border" , "3px solid purple");
             $("#fadein").click(function() {
+              $("#theDiv").fadeIn(200);
             });
             $("#fadeout").click(function() {
+              $("#theDiv").fadeOut(600);
             });
             $("#fadeto3").click(function() {
+              $("#theDiv").fadeTo(300 , 0.3);
             });
             $("#fadeup").click(function() {
+              $("#theDiv").fadeTo(300 , 1);
             });
             $("#pulse").click(function() {
+              $("#theDiv").fadeTo(200 , 0.3)
+              .fadeTo(200 , 1.0)
+              .fadeTo(200 , 0.3)
+              .fadeTo(200 , 1.0 , onComplete);
             });
+            function onComplete () {
+              $(this).text("Animation Complete");
+            };
         });
     </script>
     <style type="text/css">
+        body {
+          height : 90vh;
+        }
         p,
         span {
             font-size: 16pt;
