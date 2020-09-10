@@ -5,6 +5,42 @@
   <title>HPlus Sport</title>
   <link rel="stylesheet" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../jquery-3.5.1.js"></script>
+  <script type="text/javascript">
+  $(function () {
+//Challenge chapter 4: click on a product and new page opens
+    //first, the product name and id should be extracted from the productControls
+    console.log("the product page jquery is running");
+    var paramLoc = window.location.href.indexOf("?");
+    var paramStr = window.location.href.slice(paramLoc + 1);
+    var prodName = "";
+    var prodID = "";
+
+    var i = paramStr.indexOf("prodName=") + 9;
+    for (var j = i; j < paramStr.length; j++) {
+      if (paramStr.charAt(j) == "&")
+        break;
+      prodName += paramStr.charAt(j);
+    };
+
+    var i = paramStr.indexOf("prodID=") + 7;
+    for (var j = i; j < paramStr.lenght; j++) {
+      if (paramStr.charAt(j) == "&")
+        break;
+      prodID += paramStr.charAt(j);
+    };
+
+    //second, decode the string into text
+    prodName = decodeURIComponent(prodName);
+    prodID = decodeURIComponent(prodID);
+
+    //third, lastly, to push the extracted product name and id into the span
+    $("#productName").text(prodName);
+
+  });
+</script>
+
+
 </head>
 <body>
 

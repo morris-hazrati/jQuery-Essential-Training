@@ -58,9 +58,10 @@
 // Challenge chapter 4: Click on a product, then a new page will be
 // opened which contains the relevant information about the clicked product:
       //first, select all the list items, extract the product name and id:
-      $("#product-item").each(function () {
+      $(".product-item").each(function () {
         var prodName = encodeURIComponent($(this).children("h2").text());
         var prodID = encodeURIComponent($(this).data("prod_id"));
+        console.log("first");
 
         //second, create a link by product name and id:
         var link = $("<a href='product.html?prodName=" + prodName + "&prodID=" + prodID +"'/>");
