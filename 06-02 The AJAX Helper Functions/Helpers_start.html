@@ -19,10 +19,13 @@
         });
 
         function getData() {
+          // $.get("testdata.txt" , successFn);
+          // $("#ajaxContent").load("testdata.html");
+          $("#ajaxContent").load("testdata.html #p2");
         }
 
         function successFn(result) {
-            console.log("Setting result");
+            console.log("The AJAX request is successful!");
             $("#ajaxContent").append(result);
         }
         function errorFn(xhr, status, strErr) {
