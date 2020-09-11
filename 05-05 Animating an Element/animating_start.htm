@@ -9,19 +9,27 @@
         $(function() {
 
             $("#right").click(function() {
+              $("#theDiv").animate({width : "400px"} , 1000);
             });
             $("#text").click(function() {
+              $("#theDiv").animate({fontSize : "24pt"} , 1000);
             });
             $("#move").click(function() {
+              $("#theDiv").animate({left : "150px"} , 1000 , "swing");
             });
             $("#all").click(function() {
+              $("#theDiv").animate({
+                left : "+=100px",
+                fontSize : "3em",
+                width : "+=100px"
+              } , 1000 , "swing");
             });
         });
     </script>
     <style type="text/css">
         #theDiv {
             position: relative;
-            width: 250px;
+            width: 200px;
             height: 180px;
             margin: 10px;
             padding: 20px;
@@ -29,7 +37,7 @@
             border: 1px solid black;
             font-size: 16pt;
             cursor: pointer;
-            left:100px;
+            left:10px;
         }
 
         button {
