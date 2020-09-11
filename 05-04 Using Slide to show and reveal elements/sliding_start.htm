@@ -9,10 +9,13 @@
         $(function() {
           $("body").css("border" , "3px solid purple");
             $("#slideup").click(function() {
+              $("#theDiv").slideUp();
             });
             $("#slidedown").click(function() {
+              $("#theDiv").slideDown("slow");
             });
             $("#toggle").click(function() {
+              $("#theDiv").slideToggle("fast");
             });
         });
     </script>
@@ -52,11 +55,12 @@
             <li><code>slideToggle()</code>: toggles the state of the matched elements, either sliding them up or down depending
                 on their current state</li>
         </ul>
-        <div id="theDiv">
-        </div>
+
         <button id="slideup">Slide Up</button>
         <button id="slidedown">Slide Down</button>
         <button id="toggle">Toggle Slide</button>
+        <div id="theDiv">
+        </div>
     </div>
 </body>
 
