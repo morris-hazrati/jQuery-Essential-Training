@@ -11,23 +11,33 @@
   </style>
   <link rel="stylesheet" href="../style.css" />
 
-  <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="../jquery-3.5.1.js"></script>
   <script type="text/javascript">
-    $("document").ready(function() {
-        getData();
+    $("#document").ready(function () {
+      getData();
+    });
+
+    function getData(){
+      $.ajax({
+        url     : "testdata.txt",
+        type    : "GET",
+        dataType: "text",
+        success : successFn,
+        error   : errorFn,
+        complete: function (xhr, status) {
+          console.log("The ajax request is complete!");
+        }
       });
-      
-      function getData() {
-      }
-      
-      function successFn(result) {
-        console.log("Setting result");
-        $("#ajaxContent").append(result);
-      }
-      
-      function errorFn(xhr, status, strErr) {
-        console.log("There was an error!");
-      }
+    };
+
+    function successFn(result) {
+      console.log("The ajax request was successful!");
+      $("#ajaxContent").append(result);
+    };
+
+    function errorFn (xhr , status , strErr) {
+      console.log("There was an error!");
+    };
   </script>
 </head>
 
