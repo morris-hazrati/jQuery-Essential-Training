@@ -41,20 +41,22 @@
 //Challenge 06 - Use AJAX to fill in the product Information
     //first, to get the json data file,
     // and call a function to find the product with the id of prodID
-    $.get("product-data.json" , function (result) {
+    $.getJSON("product-data.json")
+      .done(function (prodData) {
+        prodData.products.forEach(function (elem) {
+
+          //second, search fo the product with id of prodID
+          if (elem.prod_id == prodID) {
+            //thirs, put other information of the product
+            $("#productStock").text(elem.in_stock);
+            $("#productPrice").text(elem.retail_price);
+            $("#productDesc").text(elem.description);
+          }
+        })
+      })
 
       //second, search within the results, for a product with id of prodID
-      for (i = 0; i <result.products.length ; i++) {
-        if (result.products[i].prod_id == prodID) {
 
-          //third, put the relevant information of the product into pre-specified spans
-          $("#productStock").text(result.products[i].in_stock);
-          $("#productPrice").text(result.products[i].retail_price);
-          $("#productDesc").text(result.products[i].description);
-          break;
-        }
-      }
-    });
 
   //end of challenge 06
   });
