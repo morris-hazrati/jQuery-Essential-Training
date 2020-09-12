@@ -24,7 +24,7 @@
     };
 
     var i = paramStr.indexOf("prodID=") + 7;
-    for (var j = i; j < paramStr.lenght; j++) {
+    for (var j = i; j < paramStr.length; j++) {
       if (paramStr.charAt(j) == "&")
         break;
       prodID += paramStr.charAt(j);
@@ -34,9 +34,29 @@
     prodName = decodeURIComponent(prodName);
     prodID = decodeURIComponent(prodID);
 
+    console.log(prodID);
     //third, lastly, to push the extracted product name and id into the span
     $("#productName").text(prodName);
 
+//Challenge 06 - Use AJAX to fill in the product Information
+    //first, to get the json data file,
+    // and call a function to find the product with the id of prodID
+    $.get("product-data.json" , function (result) {
+
+      //second, search within the results, for a product with id of prodID
+      for (i = 0; i <result.products.length ; i++) {
+        if (result.products[i].prod_id == prodID) {
+
+          //third, put the relevant information of the product into pre-specified spans
+          $("#productStock").text(result.products[i].in_stock);
+          $("#productPrice").text(result.products[i].retail_price);
+          $("#productDesc").text(result.products[i].description);
+          break;
+        }
+      }
+    });
+
+  //end of challenge 06
   });
 </script>
 
